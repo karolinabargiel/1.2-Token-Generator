@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 public class TokenGenerator {
-    static String tokenGenerator (org.example.TokenLength tokenLength) {
+    static String tokenGenerator (TokenLength tokenLength) {
         int getTokenLength = tokenLength.getLength();
         List<Character> listOfChars = List.of('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
                 'P','Q','R','S','T','U','V','W','X','Y','Z', 'a','b','c','d','e','f','g','h','i','j','k',
