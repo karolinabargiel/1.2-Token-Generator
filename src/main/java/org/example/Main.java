@@ -15,9 +15,9 @@ public class Main {
                 System.out.println("Invalid format");
             }
             switch (userInput) {
-                case 5 -> System.out.println(org.example.TokenGenerator.tokenGenerator(org.example.TokenLength.FIVE));
-                case 10 -> System.out.println(org.example.TokenGenerator.tokenGenerator(org.example.TokenLength.TEN));
-                case 15 -> System.out.println(org.example.TokenGenerator.tokenGenerator(org.example.TokenLength.FIFTEEN));
+                case 5 -> System.out.println(TokenGenerator.tokenGenerator(TokenLength.FIVE));
+                case 10 -> System.out.println(TokenGenerator.tokenGenerator(TokenLength.TEN));
+                case 15 -> System.out.println(TokenGenerator.tokenGenerator(TokenLength.FIFTEEN));
                 default -> System.out.println("Available values: 5, 10, 15");
             }
         } while (userInput != 5 && userInput != 10 && userInput != 15);
