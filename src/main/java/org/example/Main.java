@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int userInput = 0;
+        int userInput;
+        boolean correctValue = false;
         do {
             System.out.println("Welcome in token generator. Choose length of token - available values: 5, 10, 15): ");
             Scanner scan = new Scanner(System.in);
@@ -13,13 +14,18 @@ public class Main {
                 userInput = scan.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Invalid format");
+                continue;
             }
-            switch (userInput) {
-                case 5 -> System.out.println(TokenGenerator.tokenGenerator(TokenLength.FIVE));
-                case 10 -> System.out.println(TokenGenerator.tokenGenerator(TokenLength.TEN));
-                case 15 -> System.out.println(TokenGenerator.tokenGenerator(TokenLength.FIFTEEN));
-                default -> System.out.println("Available values: 5, 10, 15");
+            TokenLength tokenLength;
+            try {
+                tokenLength = TokenLength.getTokenByLength(userInput);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Wrong value. Available values: 5, 10, 15");
+                continue;
             }
-        } while (userInput != 5 && userInput != 10 && userInput != 15);
+            System.out.println(TokenGenerator.tokenGenerator(tokenLength));
+            correctValue = true;
+
+        } while (!correctValue);
     }
 }
